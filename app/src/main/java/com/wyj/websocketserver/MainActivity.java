@@ -21,8 +21,9 @@ import java.lang.ref.WeakReference;
 
 /**
  *  https://juejin.cn/post/6847009772198166536
+ *  https://juejin.cn/post/6850418103948754958
  *  https://blog.csdn.net/gengkui9897/article/details/82863966
- *  
+ *
  */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 handlerThread.start();
                 mSocketHandler = new SocketHandler(handlerThread.getLooper(), MainActivity.this);
             }
-            if (mWebSocket != null) {
+            if (mWebSocket == null) {
                 mSocketHandler.sendMessage(mSocketHandler.obtainMessage(MSG_START_SERVER));
             }
         });
